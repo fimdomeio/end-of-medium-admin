@@ -1,0 +1,47 @@
+--- 
+title: Lorem Ipsum
+isSearchEnabled: true
+mainButtons: 
+  - 
+    btnClass: btn-success
+    icon: fa-plus-circle
+    label: "Add New Client"
+    url: "/admin/clients/create"
+fieldOrder: name
+fields: 
+  - name
+  - surname
+  - created_at
+  - updated_at
+  - published
+
+formGroups: 
+  -
+    groupClass: col-md-6
+    groupName: ID
+    fields: 
+        - 
+          class: col-md-6
+          invalid: "You must provide a first name"
+          label: "First Name"
+          name: firstname
+          required: true
+          type: text
+        - 
+          class: col-md-6
+          invalid: "You must provide a last name"
+          label: "Last Name"
+          name: lastname
+          required: true
+          type: text
+  -  
+    groupClass: col-md-6
+    groupName: Contact
+    fields: 
+          -
+            class: col-md-6
+            label: Email
+            name: email
+            required: true
+            type: email
+   
