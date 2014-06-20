@@ -1,0 +1,10 @@
+<label ng-class="{requiredLabel: item.required}" for="item.name">{{item.label}}</label>
+<input ng-model="Data[item.name]" id="{{item.name}}" ng-required="{{item.required}}" placeholder="{{item.placeholder}}" dynamic-name="item.name" type="{{item.type}}" class="form-control" />
+
+<div ng-show="createForm[item.name].$invalid && !createForm[item.name].$pristine" class="invalid text-warning">
+	<span ng-if="item.invalid">{{item.invalid}}</span>
+	<span ng-if="!item.invalid && item.type == 'email'">
+		That is not a valid Email
+	</span>
+
+</div>

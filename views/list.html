@@ -1,0 +1,68 @@
+<div>
+	<div class="row mmt lmb">
+	<div class="col-md-12">
+	<h2>
+		{{schema.title}} <span ng-show="search"><small>(search: <i style="font-weight: lighter">{{search}}</i> <a href="" class="" ng-click="clearSearch()"><i class="fa fa-trash-o"></i></a> )</small></span>
+	</h2>
+	<hr>
+	<div ng-show="schema.isSearchEnabled" class="search input-group col-sm-3 smt pull-left">
+  		<span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+		<input ng-model="search" class="form-control" type="text" placeholder="Search">
+	</div>
+	<div class="col-sm-1 pull-left smt">
+		<a ng-show="search" href="" class="btn btn-default" ng-click="clearSearch()"><i class="fa fa-trash-o"></i></a>
+	</div>
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 mmb">
+			<span ng-repeat="button in schema.mainButtons">
+				<a href="{{button.url}}" class="btn {{button.btnClass}}">
+					<i class="fa fa-plus-circle fa-fw"></i> {{button.label}}	
+				</a>
+			</span>
+		</div>
+		<div class="col-sm-12">
+		<table ng-if="data" class="table table-hover">
+		 <thead>
+			<tr>
+				<th ng-class="{'text-center':field == 'published'}" ng-repeat="field in schema.fields"><a href='' ng-click="setOrder(field)">{{field|translate}} </a>
+					<i ng-show="order == field && orderInv == false" class="fa fa-angle-down fa-fw"></i>
+					<i ng-show="order == field && orderInv == true" class="fa fa-angle-up fa-fw"></i>
+				</th>
+				<th>Actions</th>
+		  </tr>
+		 </thead>
+
+		<tbody>
+		<tr ng-repeat="item in data| filter:search | orderBy:order:orderInv">
+			<td ng-repeat="field in schema.fields">
+				<span am-time-ago="item[field]" ng-if="field == 'created_at' || field=='updated_at'"></span>
+				<div class="text-center" ng-if="field == 'published'">
+					<buttongroup-published></buttongroup-published>
+				</div>
+				<span ng-if="field != 'created_at' && field !='updated_at' && field != 'published'"> 
+					<a href="" ng-if="$index == 0">
+						{{item[field]}}
+					</a>
+					<span ng-if="$index !=0">
+						{{item[field]}}
+					</span>
+				</span>
+			</td>
+			<td>
+				<div class="btn-group">
+					<a href="" class="btn btn-default" ng-click="display.enablePreview()"><i class="fa fa-zoom"></i> preview</a>
+					<a href="" class="btn btn-default"><i class="fa fa-edit"></i> edit</a>
+					<a href="" class="btn btn-default"><i class="fa fa-trash-o"></i> delete</a>
+				</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<div ng-if="!data">
+		There are no contents yet
+	</div>
+	</div>
+	</div>
+</div>

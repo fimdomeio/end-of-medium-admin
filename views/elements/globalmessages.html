@@ -1,0 +1,7 @@
+<div class="messages mmt">
+	<div ng-repeat="m in messages">
+		<div class="alert alert-{{m.type}} alert-dismissable">
+			<button class="close" type="button" ng-click="removeMessage($index)">×</button>
+			{{m.message}}</div>
+	</div>
+</div>

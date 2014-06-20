@@ -1,0 +1,36 @@
+<div class="row mmt lmb">
+	<div class="col-md-12">
+		<h2>Add {{schema.title}}</h2>
+	</div>
+</div>
+<form name="createForm" ng-controller="createFormController as createFormCtrl" role="form" novalidate>
+<div class="row">
+	<div class="{{group.groupClass}}" ng-repeat="group in schema.formGroups">
+		<fieldset class="">
+			<legend>{{group.groupName}}</legend>
+			<div ng-repeat="item in group.fields" class="mmb {{item.class}}">
+		<text-input ng-if="item.type== 'text' || item.type == 'email'" class="form-group"></text-input>
+		</div>
+	</div>
+</div>
+<!--div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div>
+<div class="lmt lmb">Just to enable scroll</div-->
+<div class="row mmt text-center">
+	<div ng-if="!createForm.$valid && !createForm.$pristine" class="smb"><span class="text-primary">You're doing well but some fields still need to be reviewed before saving.</span> <a class="text-danger" ng-click="createFormCtrl.showErrors()" href="">Show Me</a></div>
+	<div ng-if="createForm.$valid" class="text-info smb">We're ready to go!</div>
+	<button type='submit' class='submit btn btn-lg' ng-class="{'btn-success':createForm.$valid, 'btn-disabled':!createForm.$valid}" value='Save' name=''>		Save 
+	</button>
+	<button class="btn btn-lg">
+		<i class="fa fa-search"></i>
+		Preview
+	</button>
+</div>
+</form>
+
