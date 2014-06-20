@@ -1,0 +1,129 @@
+@import 'bootstrap/less/bootstrap.less';
+
+html {
+	font-weight: lighter;
+	height: 100%;
+}
+
+body {
+	padding-top: @navbar-height;
+	background: url('ticks.png');
+	position: relative;
+	height: 100%;
+}
+
+@sm: 15px;
+@mm: 30px;
+@lm: 60px;
+@xlm: 120px; 
+
+.smb { margin-bottom: @sm; }
+.smr { margin-right: @sm; }
+.smt { margin-top: @sm; }
+.sml { margin-left: @sm; }
+
+.mmt { margin-top: @mm; }
+.mmr { margin-right: @mm; }
+.mmb { margin-bottom: @mm; }
+.mml { margin-left: @mm; }
+
+.lmt { margin-top: @lm; }
+.lmr { margin-right: @lm; }
+.lmb { margin-bottom: @lm; }
+.lml { margin-left: @lm; }
+
+.xlmt { margin-top: @xlm; }
+.xlmr { margin-right: @xlm; }
+.xlmb { margin-bottom: @xlm; }
+.xlml { margin-left: @xlm; } 
+
+.wrapper {
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 64px;
+}
+.main {
+	position: relative;
+}
+
+.splitScreen {
+	width: 50%;
+}
+
+#preview {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	background-color: rgba(0,0,0,0.15);
+	bottom: 32px;
+	h2 {
+		opacity: 0.4;
+		padding-top: 200px;
+	}
+	.closePreview {
+		text-decoration: none;
+		color: black;
+		position: absolute;
+		top: 12px;
+		left: 12px;
+		font-size: 48px;
+	}
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	vertical-align: middle;
+}
+
+.btn .fa {
+	/*margin-left: -3px;
+	margin-right: 3px;*/
+}
+
+//FORMS
+
+fieldset{
+	background-color: rgba(0,0,0,0.05);
+	padding: 12px;
+}
+
+legend {
+	border: 0;
+	margin-left: -12px;
+	margin-bottom: -34px;
+	top: -34px;
+	position: relative;
+
+}
+
+.requiredLabel:after {
+	content: ' *';
+	color: #bb2222;
+}
+
+input.ng-dirty.ng-invalid {
+	background-color: #ffdddd;
+}
+
+input.ng-dirty.ng-valid {
+	background-color: #ddffff;
+}
+
+input.highlightErrors {
+	//border: #bb2222 6px solid;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 12px rgba(200, 20, 20, 0.9);
+	background-color: rgba(200, 20, 20, 0.7) !important;
+	border: 1px solid black;
+	color: white;
+}
+
+
+.footer {
+	border-top: 1px solid #222;
+	//background-color: #222;
+	padding-bottom: @sm/2;
+	padding-top: @sm/2;
+	position: absolute;
+	bottom: 0;
+	font-size: 0.8em;
+	height: 32px;
+}
